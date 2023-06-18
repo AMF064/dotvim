@@ -1,4 +1,5 @@
-" Basics {{{1
+"Settings {{{1
+" Basics {{{2
 set number
 set relativenumber
 set nocompatible
@@ -28,54 +29,58 @@ colorscheme desert
 
 "Matchit plugin
 if has('syntax') && has('eval')
-packadd! matchit
+    packadd! matchit
 endif
-" }}}1
+" }}}2
 
-" Autocompletion {{{1
+" Splits {{{2
+set splitright
+"}}}2
+
+" Autocompletion {{{2
 set path+="**"
 set wildmenu
-" }}}1
+" }}}2
 
-" Tabs {{{1
+" Tabs {{{2
 set wildmode=longest,list,full
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-" }}}1
+" }}}2
 
-" Indentation {{{1
+" Indentation {{{2
 set smartindent
 set autoindent
 " No wrap
 set nowrap
-" }}}1
+" }}}2
 
-" Swap files and undodirs {{{1
+" Swap files and undodirs {{{2
 set nobackup
 set noswapfile
 set undodir=getenv('HOME')."/.vim/undodir"
 set undofile
-" }}}1
+" }}}2
 
-" Highlight {{{1
+" Highlight {{{2
 set nohlsearch
 set incsearch
 
 set termguicolors
-" }}}1
+" }}}2
 
-" Listchars {{{1
+" Listchars {{{2
 set list
 set listchars=tab:>\ ,trail:·
 " }}}
 
-" Statusline {{{1
+" Statusline {{{2
 set statusline=%f\ -\ %y\ [%L]%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
-" }}}1
+" }}}2
 
-" Slimv {{{1
+" Slimv {{{2
 let g:slimv_lisp = 'usr/bin/sbcl'
 let g:slimv_lisp_impl = 'sbcl'
 let g:slimv_preferred = 'mit'            " For Scheme
@@ -87,7 +92,9 @@ let g:slimv_repl_split = 4               " Vertical split for REPL
 let g:slimv_repl_split_size = 80         " REPL split size
 let g:paredit_electric_return = 0        " Disable paredit electric return (annoying)
 let g:slimv_disable_scheme = 0
-" }}}1
+" }}}2
+
+"}}}1
 
 " Remaps {{{1
 let g:mapleader = " "
@@ -106,6 +113,12 @@ nnoremap <leader>u mzviw~`z
 " Capitalize the first letter
 nnoremap <leader>U mzviw~lve~`z
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
+"Open previous buffer in a vertical split
+nnoremap <leader>z :execute "rightbelow vsplit " . bufnr('#')<CR>
+" Open netrw
+nnoremap <leader>pv :Ex<CR>
+" Change current directory to the current file's one
+nnoremap <leader>cd <cmd>lchdir %:p:h<CR>
 " }}}2
 
 " Insert mode remaps {{{2
@@ -114,7 +127,7 @@ inoremap <C-c> <nop>
 " Delete words with Control-Backspace
 inoremap <C-BS> <C-w>
 " Capitalize  word
-inoremap <C-u> <esc>mzviw~`za
+inoremap <C-u> <esc>g~iw`]a
 " Capitalize the first letter
 inoremap <M-u> <esc>mzviw~lve~`za
 " }}}2
@@ -148,22 +161,13 @@ cnoremap <C-t> <C-f>
 cnoremap <C-d> <delete>
 " }}}2
 
-" File navigation {{{2
-" Change current directory to the current file's one
-nnoremap <leader>cd <cmd>lchdir %:p:h<CR>
-" }}}2
-
-" Netrw {{{2
-" Open netrw
-nnoremap <leader>pv :Ex<CR>
-" }}}2
 
 " Buffer remaps {{{2
-nnoremap <M-l> :buffers<CR>
 "Go to buffer
-nnoremap <C-b> :buffer <C-d>
+"nnoremap <C-b> :buffer <C-d>       Using fzf now
 nnoremap <leader>ba :badd .<CR>
 nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bl :buffers<CR>   Using fzf now
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>q :bunload<CR>
 nnoremap <leader>d :bdelete<CR>
@@ -189,17 +193,17 @@ nnoremap <leader>p \"+p
 
 " Quickfix list remaps {{{2
 " Open the quickix list
-nnoremap <leader>o :copen
+nnoremap <leader>o :copen<CR>
 " Up in the quickfix list
-nnoremap <C-k> :cprev
+nnoremap <C-k> :cprev<CR>
 " Down in the quickfix list
-nnoremap <C-j> :cnext
+nnoremap <C-j> :cnext<CR>
 " Open the local window quickfix list
-nnoremap <leader>O :lopen
+nnoremap <leader>O :lopen<CR>
 " Up in the quickfix list (local)
-nnoremap <leader>k :lprev
+nnoremap <leader>k :lprev<CR>
 " Down in the quickfix list (local)
-nnoremap <leader>j :lnext
+nnoremap <leader>j :lnext<CR>
 " }}}2
 
 " Scripts {{{2
@@ -209,17 +213,36 @@ nnoremap <leader>x <cmd>!chmod +x %<CR>
 
 " }}}1
 
+" Abbreviations {{{1
+"Insert mode abbrevs{{{2
+iabbrev itn int
+iabbrev flaot float
+iabbrev cahr char
+iabbrev Strign String
+iabbrev Stirng String
+iabbrev tehn then
+iabbrev tahn than
+iabbrev gmial gmail
+"}}}2
+
+" Command-line abbrevs {{{2
+cabbrev hg helpgrep
+cabbrev lhg lhelpgrep
+"}}}2
+
+"}}}1
+
 " Plugins {{{1
 " Make sure it is installed
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 
 if empty(glob(data_dir . '/autoload/plug.vim'))
-silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin()
-    Plug 'tpope/vim-fugitive'
-    Plug 'kovisoft/slimv'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf.vim'
 call plug#end()
-    "}}}1
+"}}}1
