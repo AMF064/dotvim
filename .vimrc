@@ -1,10 +1,13 @@
 " Basics {{{1
 set number
 set relativenumber
+set nocompatible
+set showcmd
 syntax on
 
 set guicursor=""
 set cursorline
+set laststatus=2
 set scrolloff=8
 
 " Folds
@@ -32,11 +35,11 @@ endif
 " Autocompletion {{{1
 set path+="**"
 set wildmenu
-set wildmode=longest,list,full
-set tabstop=4
 " }}}1
 
 " Tabs {{{1
+set wildmode=longest,list,full
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -68,6 +71,10 @@ set list
 set listchars=tab:>\ ,trail:·
 " }}}
 
+" Statusline {{{1
+set statusline=%f\ -\ %y\ [%L]%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
+" }}}1
+
 " Slimv {{{1
 let g:slimv_lisp = 'usr/bin/sbcl'
 let g:slimv_lisp_impl = 'sbcl'
@@ -80,10 +87,6 @@ let g:slimv_repl_split = 4               " Vertical split for REPL
 let g:slimv_repl_split_size = 80         " REPL split size
 let g:paredit_electric_return = 0        " Disable paredit electric return (annoying)
 let g:slimv_disable_scheme = 0
-" }}}1
-
-" Statusline {{{1
-" set statusline="%f\ -\ %y\ [%L]%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]"
 " }}}1
 
 " Remaps {{{1
@@ -102,7 +105,7 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>u mzviw~`z
 " Capitalize the first letter
 nnoremap <leader>U mzviw~lve~`z
-nnoremap <leader>ev :vsplit ~/.dotfiles/nvim/lua/amf/remap.lua<CR>
+nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 " }}}2
 
 " Insert mode remaps {{{2
@@ -163,7 +166,7 @@ nnoremap <leader>ba :badd .<CR>
 nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>q :bunload<CR>
-nnoremap <M-d> :bdelete<CR>
+nnoremap <leader>d :bdelete<CR>
 " }}}2
 
 " Terminal remaps {{{2
@@ -205,3 +208,18 @@ nnoremap <leader>x <cmd>!chmod +x %<CR>
 " }}}2
 
 " }}}1
+
+" Plugins {{{1
+" Make sure it is installed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
+if empty(glob(data_dir . '/autoload/plug.vim'))
+silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+    Plug 'tpope/vim-fugitive'
+    Plug 'kovisoft/slimv'
+call plug#end()
+    "}}}1
