@@ -129,7 +129,7 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>u mzviw~`z
 " Capitalize the first letter
 nnoremap <leader>U mzviw~lve~`z
-nnoremap <leader>ev :vsplit ~/.vimrc<CR>
+nnoremap <leader>ev :vsplit ~/.vim/.vimrc<CR>
 " Open netrw
 nnoremap <leader>pv :Ex<CR>
 " Change current directory to the current file's one
