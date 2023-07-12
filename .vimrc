@@ -187,7 +187,7 @@ cnoremap <C-d> <delete>
 "nnoremap <C-b> :buffer <C-d>       Using fzf now
 nnoremap <silent> <leader>ba :badd .<CR>
 nnoremap <silent> <leader>bn :bnext<CR>
-nnoremap <silent> <leader>bl :buffers<CR>   Using fzf now
+nnoremap <silent> <leader>bl :buffers<CR>
 nnoremap <silent> <leader>bp :bprevious<CR>
 nnoremap <silent> <leader>q :bunload<CR>
 nnoremap <silent> <leader>d :bdelete<CR>
