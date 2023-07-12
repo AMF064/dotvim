@@ -13,10 +13,7 @@ set cpo&vim
 
 CompilerSet makeprg=nasm\ -felf64\ %\ &&\ ld\ -o\ %<\ %<.o
 
-CompilerSet errorformat=
-            \%A\ \ File\ \"%f\"\\\,\ line\ %l:\ %t:
-            \%C\ \ \ %m
-            \%Z
+CompilerSet errorformat=%f:%l:\ %trror:\ %m
 
 let &cpo = s:cpo_save
 unlet s:cpo_save

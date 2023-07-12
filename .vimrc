@@ -15,6 +15,9 @@ set scrolloff=8
 set foldmethod=marker
 set foldlevelstart=0
 
+" Messages
+set shortmess=filnxtToO
+
 " Update time
 set updatetime=50
 
@@ -31,6 +34,9 @@ colorscheme desert
 if has('syntax') && has('eval')
     packadd! matchit
 endif
+
+"Man plugin
+runtime ftplugin/man.vim
 " }}}2
 
 " Splits {{{2
@@ -40,10 +46,10 @@ set splitright
 " Autocompletion {{{2
 set path+="**"
 set wildmenu
+set wildmode=longest,list,full
 " }}}2
 
 " Tabs {{{2
-set wildmode=longest,list,full
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -65,7 +71,7 @@ set undofile
 " }}}2
 
 " Highlight {{{2
-set nohlsearch
+set hlsearch
 set incsearch
 
 set termguicolors
@@ -81,19 +87,28 @@ set statusline=%f\ -\ %y\ [%L]%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
 " }}}2
 
 " Slimv {{{2
-let g:slimv_lisp = 'usr/bin/sbcl'
-let g:slimv_lisp_impl = 'sbcl'
-let g:slimv_preferred = 'mit'            " For Scheme
-let g:slimv_swank_cmd = '! st -c \"Floating\" -g 60x20+480+280 -e sbcl " load /home/amf/.local/share/nvim/site/pack/packer/start/slimv/slime/start-swank.lisp &'
-let g:slimv_swank_scheme = '! st -c \"Floating" -g 60x20+480+280 -e ~/.local/bin/bin/mit-scheme " load /home/amf/.local/share/nvim/site/pack/packer/start/slimv/slime/contrib/swank-mit-scheme.scm &'
-let g:swank_block_size = 65536
-let g:slimv_leader = '\\'                " Leader key is '\'
-let g:slimv_repl_split = 4               " Vertical split for REPL
-let g:slimv_repl_split_size = 80         " REPL split size
-let g:paredit_electric_return = 0        " Disable paredit electric return (annoying)
-let g:slimv_disable_scheme = 0
+" let g:slimv_lisp = 'usr/bin/sbcl'
+" let g:slimv_lisp_impl = 'sbcl'
+" let g:slimv_preferred = 'mit'            " For Scheme
+" let g:slimv_swank_cmd = '! st -c \"Floating\" -g 60x20+480+280 -e sbcl " load /home/amf/.local/share/nvim/site/pack/packer/start/slimv/slime/start-swank.lisp &'
+" let g:slimv_swank_scheme = '! st -c \"Floating" -g 60x20+480+280 -e ~/.local/bin/bin/mit-scheme " load /home/amf/.local/share/nvim/site/pack/packer/start/slimv/slime/contrib/swank-mit-scheme.scm &'
+" let g:swank_block_size = 65536
+" let g:slimv_leader = '\\'                " Leader key is '\'
+" let g:slimv_repl_split = 4               " Vertical split for REPL
+" let g:slimv_repl_split_size = 80         " REPL split size
+" let g:paredit_electric_return = 0        " Disable paredit electric return (annoying)
+" let g:slimv_disable_scheme = 0
 " }}}2
 
+" Zepl {{{2
+let g:repl_config = {
+            \   'scheme': {'cmd': 'guile'},
+            \   'lisp': {
+            \     'cmd': 'rlwrap sbcl',
+            \   },
+            \   'matlab': {'cmd': 'octave'},
+            \ }
+" }}}2
 "}}}1
 
 " Remaps {{{1
@@ -102,6 +117,8 @@ let g:mapleader = " "
 " Normal mode remaps {{{2
 nnoremap H 0
 nnoremap L $
+" Deactivate highlighting
+nnoremap <silent> <leader>s :nohlsearch<CR>
 " Move one line down
 nnoremap - <cmd>set lz<CR>ddp<cmd>set nolz<CR>
 " Move one line up
@@ -113,17 +130,21 @@ nnoremap <leader>u mzviw~`z
 " Capitalize the first letter
 nnoremap <leader>U mzviw~lve~`z
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
-"Open previous buffer in a vertical split
-nnoremap <leader>z :execute "rightbelow vsplit " . bufnr('#')<CR>
 " Open netrw
 nnoremap <leader>pv :Ex<CR>
 " Change current directory to the current file's one
 nnoremap <leader>cd <cmd>lchdir %:p:h<CR>
+" Zepl remaps
+nnoremap <silent> <leader>r <cmd>vertical 60 Repl<CR>
+" Toggle the foldcolumn
+nnoremap <leader>f <cmd>call personal#ToggleFoldColumn()<CR>
 " }}}2
 
 " Insert mode remaps {{{2
 " Disable C-c
 inoremap <C-c> <nop>
+" Definitive escape
+inoremap <esc> <esc><esc>
 " Delete words with Control-Backspace
 inoremap <C-BS> <C-w>
 " Capitalize  word
@@ -143,7 +164,7 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap <C-m> :norm I//<CR>
 " }}}2
 
-" Patter-overview remaps {{{2
+" Pattern-overview remaps {{{2
 " For email addresses
 onoremap in@ :<c-u>execute "normal! /@\r:nohlsearch\rhvb"<cr>
 onoremap an@ :<c-u>execute "normal! /@\r:nohlsearch\rlvE"<cr>
@@ -161,23 +182,22 @@ cnoremap <C-t> <C-f>
 cnoremap <C-d> <delete>
 " }}}2
 
-
 " Buffer remaps {{{2
 "Go to buffer
 "nnoremap <C-b> :buffer <C-d>       Using fzf now
-nnoremap <leader>ba :badd .<CR>
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bl :buffers<CR>   Using fzf now
-nnoremap <leader>bp :bprevious<CR>
-nnoremap <leader>q :bunload<CR>
-nnoremap <leader>d :bdelete<CR>
+nnoremap <silent> <leader>ba :badd .<CR>
+nnoremap <silent> <leader>bn :bnext<CR>
+nnoremap <silent> <leader>bl :buffers<CR>   Using fzf now
+nnoremap <silent> <leader>bp :bprevious<CR>
+nnoremap <silent> <leader>q :bunload<CR>
+nnoremap <silent> <leader>d :bdelete<CR>
 " }}}2
 
 " Terminal remaps {{{2
 " Exit terminal mode
 tnoremap <Esc> <C-\\><C-n>
-nnoremap <leader>t :vertical terminal<CR>
-nnoremap <leader>T :terminal<CR>
+nnoremap <silent> <leader>t :vertical terminal<CR>
+nnoremap <silent> <leader>T :terminal<CR>
 " }}}2
 
 " Clipboard remaps {{{2
@@ -192,18 +212,18 @@ nnoremap <leader>p \"+p
 " }}}2
 
 " Quickfix list remaps {{{2
-" Open the quickix list
-nnoremap <leader>o :copen<CR>
+" Toggle the quickix list
+nnoremap <silent> <leader>o :call personal#ToggleQuickFix()<CR>
 " Up in the quickfix list
-nnoremap <C-k> :cprev<CR>
+nnoremap <silent> <C-k> :cprev<CR>
 " Down in the quickfix list
-nnoremap <C-j> :cnext<CR>
+nnoremap <silent> <C-j> :cnext<CR>
 " Open the local window quickfix list
-nnoremap <leader>O :lopen<CR>
+nnoremap <silent> <leader>O :call personal#ToggleLocationList()<CR>
 " Up in the quickfix list (local)
-nnoremap <leader>k :lprev<CR>
+nnoremap <silent> <leader>k :lprev<CR>
 " Down in the quickfix list (local)
-nnoremap <leader>j :lnext<CR>
+nnoremap <silent> <leader>j :lnext<CR>
 " }}}2
 
 " Scripts {{{2
@@ -244,5 +264,6 @@ endif
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
+Plug 'axvr/zepl.vim'
 call plug#end()
 "}}}1
