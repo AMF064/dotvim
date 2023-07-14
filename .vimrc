@@ -86,23 +86,11 @@ set listchars=tab:>\ ,trail:·
 set statusline=%f\ -\ %y\ [%L]%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
 " }}}2
 
-" Slimv {{{2
-" let g:slimv_lisp = 'usr/bin/sbcl'
-" let g:slimv_lisp_impl = 'sbcl'
-" let g:slimv_preferred = 'mit'            " For Scheme
-" let g:slimv_swank_cmd = '! st -c \"Floating\" -g 60x20+480+280 -e sbcl " load /home/amf/.local/share/nvim/site/pack/packer/start/slimv/slime/start-swank.lisp &'
-" let g:slimv_swank_scheme = '! st -c \"Floating" -g 60x20+480+280 -e ~/.local/bin/bin/mit-scheme " load /home/amf/.local/share/nvim/site/pack/packer/start/slimv/slime/contrib/swank-mit-scheme.scm &'
-" let g:swank_block_size = 65536
-" let g:slimv_leader = '\\'                " Leader key is '\'
-" let g:slimv_repl_split = 4               " Vertical split for REPL
-" let g:slimv_repl_split_size = 80         " REPL split size
-" let g:paredit_electric_return = 0        " Disable paredit electric return (annoying)
-" let g:slimv_disable_scheme = 0
-" }}}2
-
 " Zepl {{{2
 let g:repl_config = {
-            \   'scheme': {'cmd': 'guile'},
+            \   'scheme': {
+            \       'cmd': 'rlwrap guile',
+            \   },
             \   'lisp': {
             \     'cmd': 'rlwrap sbcl',
             \   },
@@ -135,7 +123,7 @@ nnoremap <leader>pv :Ex<CR>
 " Change current directory to the current file's one
 nnoremap <leader>cd <cmd>lchdir %:p:h<CR>
 " Zepl remaps
-nnoremap <silent> <leader>r <cmd>vertical 60 Repl<CR>
+nnoremap <silent> <leader>r <cmd>vertical keep 60 Repl<CR>
 " Toggle the foldcolumn
 nnoremap <leader>f <cmd>call personal#ToggleFoldColumn()<CR>
 " }}}2
@@ -144,7 +132,7 @@ nnoremap <leader>f <cmd>call personal#ToggleFoldColumn()<CR>
 " Disable C-c
 inoremap <C-c> <nop>
 " Definitive escape
-inoremap <esc> <esc><esc>
+noremap <esc> <esc><esc>
 " Delete words with Control-Backspace
 inoremap <C-BS> <C-w>
 " Capitalize  word
