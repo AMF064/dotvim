@@ -1,6 +1,6 @@
 " Compiler settings {{{1
 compiler gcc
-set makeprg=gcc\ -Wall\ -Wextra\ -Wpedantic\ -std=c11\ -o\ %<\ %
+setlocal makeprg=gcc\ -Wall\ -Wextra\ -Wpedantic\ -std=c11\ -o\ %<\ %
 " }}}1
 
 " Buffer-local remaps {{{1
