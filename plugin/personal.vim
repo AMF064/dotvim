@@ -41,6 +41,9 @@ endfunction
 
 " Function for not moving the cursor
 function! s:indent_file()
+    if &filetype ==# '' || &filetype ==# 'potion'
+        return
+    endif
     let l:view = winsaveview()
     keepjumps execute "keepjumps normal! gg=G"
     call winrestview(l:view)
