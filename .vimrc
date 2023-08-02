@@ -162,9 +162,7 @@ onoremap al@ :<c-u>execute "normal! ?@\r:nohlsearch\rlvE"<cr>
 
 " Command-line remaps (Emacs mode) {{{2
 cnoremap <C-b> <Left>
-cnoremap <M-b> <C-Left>
 cnoremap <C-f> <Right>
-cnoremap <M-f> <C-Right>
 cnoremap <C-a> <Home>
 cnoremap <C-t> <C-f>
 cnoremap <C-d> <delete>
