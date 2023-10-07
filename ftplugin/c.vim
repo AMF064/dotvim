@@ -9,10 +9,7 @@ nnoremap <buffer> <silent> K :Man <cword><CR>
 
 " Abbreviations {{{1
 iabbrev <buffer> ret return ;<left>
-iabbrev <buffer> return NOPENOPENOPE
 iabbrev <buffer> fmain int main(int argc, char *argv[]){<CR>}<esc>O
 iabbrev <buffer> inc #include <><left>
-iabbrev <buffer> include NOPENOPENOPE
-iabbrev <buffer> def #define <><left>
-iabbrev <buffer> define NOPENOPENOPE
+iabbrev <buffer> def #define
 " }}}1
