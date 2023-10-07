@@ -101,10 +101,9 @@ let g:repl_config = {
 
 " Remaps {{{1
 let g:mapleader = " "
+let g:maplocalleader = '\'
 
 " Normal mode remaps {{{2
-nnoremap H 0
-nnoremap L $
 " Deactivate highlighting
 nnoremap <silent> <leader>s :nohlsearch<CR>
 " Move one line down
@@ -124,6 +123,7 @@ nnoremap <leader>pv :Ex<CR>
 nnoremap <leader>cd <cmd>lchdir %:p:h<CR>
 " Zepl remaps
 nnoremap <silent> <leader>r <cmd>vertical keep 60 Repl<CR>
+nnoremap <silent> <leader>R <cmd>keep botright 10 Repl<CR>
 " Toggle the foldcolumn
 nnoremap <leader>f <cmd>call personal#ToggleFoldColumn()<CR>
 " }}}2
@@ -232,8 +232,9 @@ iabbrev gmial gmail
 "}}}2
 
 " Command-line abbrevs {{{2
-cabbrev hg helpgrep
-cabbrev lhg lhelpgrep
+cnoreabbrev hg helpgrep
+cnoreabbrev lhg lhelpgrep
+cnoreabbrev wm write \| make
 "}}}2
 
 "}}}1
