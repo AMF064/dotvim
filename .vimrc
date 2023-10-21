@@ -104,6 +104,8 @@ let g:mapleader = " "
 let g:maplocalleader = '\'
 
 " Normal mode remaps {{{2
+nnoremap H _
+nnoremap L $
 " Deactivate highlighting
 nnoremap <silent> <leader>s :nohlsearch<CR>
 " Move one line down
