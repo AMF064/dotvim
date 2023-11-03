@@ -28,7 +28,7 @@ let g:netrw_banner=0
 set hidden
 
 " Colorscheme
-colorscheme desert
+colorscheme pablo
 
 "Matchit plugin
 if has('syntax') && has('eval')
@@ -95,6 +95,7 @@ let g:repl_config = {
             \     'cmd': 'rlwrap sbcl',
             \   },
             \   'matlab': {'cmd': 'octave'},
+            \   'python': {'cmd': 'python3'},
             \ }
 " }}}2
 "}}}1
