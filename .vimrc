@@ -28,7 +28,7 @@ let g:netrw_banner=0
 set hidden
 
 " Colorscheme
-colorscheme pablo
+colorscheme desert
 
 "Matchit plugin
 if has('syntax') && has('eval')
@@ -163,12 +163,13 @@ onoremap il@ :<c-u>execute "normal! ?@\r:nohlsearch\rhvb"<cr>
 onoremap al@ :<c-u>execute "normal! ?@\r:nohlsearch\rlvE"<cr>
 " }}}2
 
-" Command-line remaps (Emacs mode) {{{2
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <C-a> <Home>
-cnoremap <C-t> <C-f>
-cnoremap <C-d> <delete>
+" Command-line remaps {{{2
+nnoremap : :<C-f>i
+"cnoremap <C-b> <Left>
+"cnoremap <C-f> <Right>
+"cnoremap <C-a> <Home>
+"cnoremap <C-t> <C-f>
+"cnoremap <C-d> <delete>
 " }}}2
 
 " Buffer remaps {{{2
