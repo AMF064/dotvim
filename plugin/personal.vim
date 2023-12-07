@@ -41,7 +41,7 @@ endfunction
 
 " Function for not moving the cursor
 function! s:indent_file()
-    if &filetype ==# '' || &filetype ==# 'potion' || &filetype ==# 'markdown' || &filetype ==# 'conf'
+    if &filetype ==# '' || &filetype ==# 'potion' || &filetype ==# 'markdown' || &filetype ==# 'conf' || &filetype ==# 'text'
         return
     endif
     let l:view = winsaveview()
