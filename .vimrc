@@ -164,7 +164,6 @@ onoremap al@ :<c-u>execute "normal! ?@\r:nohlsearch\rlvE"<cr>
 " }}}2
 
 " Command-line remaps {{{2
-nnoremap : :<C-f>i
 "cnoremap <C-b> <Left>
 "cnoremap <C-f> <Right>
 "cnoremap <C-a> <Home>
