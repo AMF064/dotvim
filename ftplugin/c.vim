@@ -3,8 +3,14 @@ compiler gcc
 setlocal makeprg=gcc\ -Wall\ -Wextra\ -Wpedantic\ -ggdb\ -std=c11\ -o\ %<\ %
 " }}}1
 
+" Keywordprg {{{1
+setlocal keywordprg=:Man
+" }}}1
+
+
 " Buffer-local remaps {{{1
-nnoremap <buffer> <silent> K :Man <cword><CR>
+"nnoremap <buffer> <silent> K :Man <cword><CR>
+nnoremap <buffer> <silent> <localleader>c I//<Esc>
 " }}}1
 
 " Abbreviations {{{1
