@@ -15,8 +15,8 @@ nnoremap <buffer> <silent> <localleader>c I//<Esc>
 
 " Abbreviations {{{1
 iabbrev <buffer> ret return ;<left>
-iabbrev <buffer> fmain int main(int argc, char *argv[]){<CR>}<esc>O
-iabbrev <buffer> vmain int main(void){<CR>}<esc>O
+iabbrev <buffer> fmain int main(int argc, char *argv[])<CR>{<CR>}<esc>O
+iabbrev <buffer> vmain int main(void)<CR>{<CR>}<esc>O
 iabbrev <buffer> inc #include
 iabbrev <buffer> def #define
 " }}}1
