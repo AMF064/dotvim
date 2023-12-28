@@ -1,7 +1,3 @@
-if exists('g:loaded_hex')
-    finish
-endif
-
 let b:hex_mode = 0
 
 function! hex#ToggleHexMode()
@@ -16,18 +12,12 @@ function! hex#ToggleHexMode()
 endfunction
 
 function! s:write_hex_pre()
-    if &filetype ==# 'fugitive'
-        return
-    endif
     if b:hex_mode
         %! xxd -r
     endif
 endfunction
 
 function! s:write_hex_post()
-    if &filetype ==# 'fugitive'
-        return
-    endif
     if b:hex_mode
         %! xxd
     endif
