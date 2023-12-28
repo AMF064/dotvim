@@ -26,8 +26,8 @@ endfunction
 " Prevent the user from writing the file in hex mode
 augroup write_while_in_hex
     au!
-    autocmd BufWritePre * silent call s:write_hex_pre()
-    autocmd BufWritePost * silent call s:write_hex_post()
+    autocmd BufWritePre ^(fugitive) silent call s:write_hex_pre()
+    autocmd BufWritePost ^(fugitive) silent call s:write_hex_post()
 augroup end
 
 command Hex call hex#ToggleHexMode()
