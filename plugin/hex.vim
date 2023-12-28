@@ -2,7 +2,6 @@ let b:hex_mode = 0
 
 function! hex#ToggleHexMode()
     if !b:hex_mode
-        write
         silent %! xxd
         let b:hex_mode = 1
     else
