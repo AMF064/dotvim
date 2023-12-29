@@ -50,7 +50,7 @@ function! s:indent_file()
 endfunction
 
 " Do these two things before writing to file
-augroup please_be_nice
+augroup before_writing
     au!
     " Indent
     autocmd BufWritePre * silent call <SID>indent_file()
