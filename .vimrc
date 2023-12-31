@@ -222,6 +222,11 @@ nnoremap <leader>x <cmd>!chmod +x %<CR>
 
 " }}}1
 
+" Commands {{{1
+command CC call personal#CompileQuickFix()
+command CL call personal#CompileLocation()
+" }}}1
+
 " Abbreviations {{{1
 "Insert mode abbrevs{{{2
 iabbrev itn int
@@ -237,9 +242,7 @@ iabbrev gmial gmail
 " Command-line abbrevs {{{2
 cnoreabbrev hg helpgrep
 cnoreabbrev lhg lhelpgrep
-cnoreabbrev wm write \| make
 "}}}2
-
 "}}}1
 
 " Plugins {{{1
