@@ -223,8 +223,8 @@ nnoremap <leader>x <cmd>!chmod +x %<CR>
 " }}}1
 
 " Commands {{{1
-command CC call personal#CompileQuickFix()
-command CL call personal#CompileLocation()
+command! CC call personal#CompileQuickFix()
+command! CL call personal#CompileLocation()
 " }}}1
 
 " Abbreviations {{{1
