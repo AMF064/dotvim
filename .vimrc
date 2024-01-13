@@ -39,6 +39,7 @@ runtime ftplugin/man.vim
 " Colorscheme {{{2
 colorscheme desert
 " }}}2
+
 " Splits {{{2
 set splitright
 "}}}2
@@ -184,7 +185,7 @@ nnoremap <silent> <leader>d :bdelete<CR>
 
 " Terminal remaps {{{2
 " Exit terminal mode
-tnoremap <Esc> <C-\\><C-n>
+" tnoremap <Esc> <C-\\><C-n>   " It doesn't work
 nnoremap <silent> <leader>t :vertical terminal<CR>
 nnoremap <silent> <leader>T :terminal<CR>
 " }}}2
