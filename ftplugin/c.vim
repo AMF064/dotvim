@@ -7,6 +7,9 @@ setlocal makeprg=gcc\ -Wall\ -Wextra\ -Wpedantic\ -ggdb\ -std=c11\ -o\ %<\ %
 setlocal keywordprg=:Man
 " }}}1
 
+" Indentation {{{1
+set cinoptions=+0,(0
+" }}}1
 
 " Buffer-local remaps {{{1
 "nnoremap <buffer> <silent> K :Man <cword><CR>
