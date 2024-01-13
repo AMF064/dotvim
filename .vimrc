@@ -27,9 +27,6 @@ let g:netrw_banner=0
 " Hidden buffers: for changing buffers without saving
 set hidden
 
-" Colorscheme
-colorscheme desert
-
 "Matchit plugin
 if has('syntax') && has('eval')
     packadd! matchit
@@ -39,6 +36,9 @@ endif
 runtime ftplugin/man.vim
 " }}}2
 
+" Colorscheme {{{2
+colorscheme desert
+" }}}2
 " Splits {{{2
 set splitright
 "}}}2
