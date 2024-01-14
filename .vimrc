@@ -133,6 +133,10 @@ nnoremap <leader>f <cmd>call personal#ToggleFoldColumn()<CR>
 
 " Inspect the highlight group
 nnoremap <leader>h :call personal#ShowHighGroup()<CR>
+" Interchange words
+nnoremap <leader>; yiwWvep#vepW
+" Interchange to C-function arguments backwards
+nnoremap <leader>, yiwbbvep*vepbbb
 " }}}2
 
 " Insert mode remaps {{{2
