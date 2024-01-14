@@ -70,6 +70,13 @@ function! personal#CompileLocation()
     execute g:location_return_to_window . ' wincmd w'
 endfunction
 
+" Show the highlight group the word under the cursor belongs to
+function! personal#ShowHighGroup()
+    if !exists('*synstack')
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
 
 " Autocommands
 

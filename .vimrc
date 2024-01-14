@@ -130,6 +130,9 @@ nnoremap <silent> <leader>r <cmd>vertical keep 60 Repl<CR>
 nnoremap <silent> <leader>R <cmd>keep botright 10 Repl<CR>
 " Toggle the foldcolumn
 nnoremap <leader>f <cmd>call personal#ToggleFoldColumn()<CR>
+
+" Inspect the highlight group
+nnoremap <leader>h :call personal#ShowHighGroup()<CR>
 " }}}2
 
 " Insert mode remaps {{{2
