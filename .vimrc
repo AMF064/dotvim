@@ -84,7 +84,7 @@ set listchars=tab:>\ ,trail:·
 " }}}
 
 " Statusline {{{2
-set statusline=%f\ -\ %y\ [%L]%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
+set statusline=%f\ -\ %y\ [%L]\ %{fugitive#statusline()}%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
 " }}}2
 
 " Zepl {{{2
