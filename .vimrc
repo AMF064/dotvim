@@ -6,6 +6,7 @@ set nocompatible
 set showcmd
 syntax on
 
+" Defaults
 set guicursor=""
 set cursorline
 set laststatus=2
@@ -17,8 +18,8 @@ set foldlevelstart=0
 " Messages
 set shortmess=filnxtToO
 
-" Update time
-set updatetime=50
+" Autoread
+set autoread
 
 " Netrw
 let g:netrw_banner=0
