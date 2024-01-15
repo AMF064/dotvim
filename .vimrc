@@ -12,7 +12,6 @@ set laststatus=2
 set scrolloff=8
 
 " Folds
-set foldmethod=marker
 set foldlevelstart=0
 
 " Messages
@@ -81,7 +80,7 @@ set termguicolors
 " Listchars {{{2
 set list
 set listchars=tab:>\ ,trail:·
-" }}}
+" }}}1
 
 " Statusline {{{2
 set statusline=%f\ -\ %y\ [%L]\ %{fugitive#statusline()}%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
@@ -268,3 +267,4 @@ Plug 'junegunn/fzf.vim'
 Plug 'axvr/zepl.vim'
 call plug#end()
 "}}}1
+" vim: foldmethod=marker
