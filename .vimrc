@@ -189,6 +189,12 @@ nnoremap <silent> <leader>q :bunload<CR>
 nnoremap <silent> <leader>d :bdelete<CR>
 " }}}2
 
+" Argument remaps {{{2
+nnoremap <leader>an <cmd>next<CR>
+nnoremap <leader>ap <cmd>previous<CR>
+nnoremap <leader>ar <cmd>rewind<CR>
+" }}}2
+
 " Terminal remaps {{{2
 " Exit terminal mode
 " tnoremap <Esc> <C-\\><C-n>   " It doesn't work
