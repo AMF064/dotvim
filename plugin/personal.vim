@@ -102,6 +102,5 @@ augroup end
 " For editing text, not code
 augroup writer_settings
     au!
-    autocmd FileType nroff,text,markdown setlocal wrap
-    autocmd FileType nroff,text,markdown setlocal list
+    autocmd FileType nroff,text,markdown setlocal wrap, linebreak, nolist
 augroup end
