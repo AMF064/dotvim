@@ -12,7 +12,7 @@ endfunction
 augroup before_writing
     au!
     " Indent
-    autocmd BufWritePre *.c,*.java,*.py,*.scm,*.lisp,*.perl,*.el,*.vim
+    autocmd BufWritePre *.c,*.java,*.py,*.scm,*.lisp,*.perl,*.el,*.vim,.vimrc
                 \ silent call <SID>indent_file()
     " Remove trailing whitespace
     autocmd BufWritePre * :%s/\s\+$//e
