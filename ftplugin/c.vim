@@ -10,7 +10,6 @@ setlocal omnifunc=ccomplete#Complete
 " }}}1
 
 " Buffer-local remaps {{{1
-"nnoremap <buffer> <silent> K :Man <cword><CR>
 nnoremap <buffer> <silent> <localleader>c I//<Esc>
 " }}}1
 
