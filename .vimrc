@@ -12,11 +12,16 @@ set cursorline
 set laststatus=2
 set scrolloff=8
 
+" Backspace options for OpenBSD
+if has('bsd')
+    set backspace=indent,eol,start
+endif
+
 " Folds
 set foldlevelstart=0
 
 " Messages
-set shortmess=filnxtToO
+set shortmess=filnxtToOc
 
 " Autoread
 set autoread
