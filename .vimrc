@@ -95,7 +95,7 @@ set statusline=%f\ -\ %y\ [%L]\ %{fugitive#statusline()}%=%{getcwd()}/%=%([%M%R%
 " Zepl {{{2
 let g:repl_config = {
             \   'scheme': {
-            \       'cmd': 'rlwrap guile',
+            \       'cmd': 'guile',
             \   },
             \   'lisp': {
             \     'cmd': 'rlwrap sbcl',
