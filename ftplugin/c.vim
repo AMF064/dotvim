@@ -3,11 +3,8 @@ compiler gcc
 setlocal makeprg=gcc\ -Wall\ -Wextra\ -Wpedantic\ -ggdb\ -std=c11\ -o\ %<\ %
 " }}}1
 
-" Keywordprg {{{1
+" Keywordprg, indentation and completion {{{1
 setlocal keywordprg=:Man
-" }}}1
-
-" Indentation {{{1
 set cinoptions=+0,(0
 setlocal omnifunc=ccomplete#Complete
 " }}}1
