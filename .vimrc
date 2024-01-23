@@ -305,4 +305,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'axvr/zepl.vim'
 call plug#end()
 "}}}1
+
+" Special .vimrc settings {{{1
+augroup vimrc
+    au!
+    au BufWritePost .vimrc source $MYVIMRC
+augroup end
+" }}}1
 " vim: foldmethod=marker
