@@ -123,9 +123,9 @@ nnoremap ~ <cmd>set lz<CR>ddkP<cmd>set nolz<CR>
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 " Change case of a word
-nnoremap <leader>u mzviw~`z
+nnoremap <leader>u mzg~iwg`z
 " Capitalize the first letter
-nnoremap <leader>U mzviw~lve~`z
+nnoremap <leader>U mzg~iwlg~eg`z
 nnoremap <leader>ev :vsplit ~/.vim/.vimrc<CR>
 " Open netrw
 nnoremap <leader>pv :Ex<CR>
