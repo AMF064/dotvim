@@ -86,6 +86,7 @@ set termguicolors
 " Listchars {{{2
 set list
 set listchars=tab:>\ ,trail:·
+" }}}2
 " }}}1
 
 " Statusline {{{2
