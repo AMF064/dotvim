@@ -11,8 +11,6 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-CompilerSet makeprg=nasm\ -felf64\ %\ &&\ ld\ -o\ %<\ %<.o
-
 CompilerSet errorformat=%f:%l:\ %trror:\ %m
 
 let &cpo = s:cpo_save
