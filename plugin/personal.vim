@@ -8,14 +8,20 @@ function! s:indent_file()
     call winrestview(l:view)
 endfunction
 
+function! s:trim_trailing_whitespace()
+    if &binary || &filetype == 'diff' || bufname('%') =~# '.*\.vimrc'
+        return
+    endif
+    let l:view = winsaveview()
+    keepjumps %s/\s\+$//e
+    call winrestview(l:view)
+endfunction
+
 " Do these two things before writing to file
 augroup before_writing
     au!
-    " Indent
-    autocmd BufWritePre *.c,*.java,*.py,*.scm,*.lisp,*.perl,*.el,*.vim,.vimrc
-                \ silent call <SID>indent_file()
-    " Remove trailing whitespace
-    autocmd BufWritePre * :%s/\s\+$//e
+    autocmd BufWritePre *.c,*.java,*.py,*.scm,*.lisp,*.perl,*.el,*.vim  silent call <SID>indent_file()
+    autocmd BufWritePre * call <SID>trim_trailing_whitespace()
 augroup end
 
 " For editing text, not code
