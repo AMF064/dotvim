@@ -209,15 +209,37 @@ nnoremap <silent> <leader>t :vertical terminal<CR>
 nnoremap <silent> <leader>T :terminal<CR>
 " }}}2
 
-" Clipboard remaps {{{2
-" Yanking in the + register
-nnoremap <leader>y \"+y
-" Yanking in the + register (visual mode)
-vnoremap <leader>y \"+y
-" Yanking line in the + register
-nnoremap <leader>Y \"+Y
-" Pasting from the + register
-nnoremap <leader>p \"+p
+" Yanking and clipboard remaps {{{2
+nnoremap <leader>p \"0p
+nnoremap <leader>P \"0P
+if has('clipboard')
+    " Yanking in the + register
+    nnoremap <leader>y \"+y
+    " Yanking in the + register (visual mode)
+    vnoremap <leader>y \"+y
+    " Yanking line in the + register
+    nnoremap <leader>Y \"+Y
+    " Pasting from the + register
+    nnoremap <leader>cp \"+p
+    nnoremap <leader>cP \"+P
+else
+    " Paste from the clipboard and the primary selection.
+    " CAREFUL! These commands overwrites the contents
+    " of the current line.
+    nnoremap <leader>cp !!xclip -sel clipboard -o<CR>
+    nnoremap <leader>cP !!xclip -o<CR>
+    " Enter Insert mode with the paste option
+    nnoremap <leader>yi :set paste<CR>i
+    nnoremap <leader>ya :set paste<CR>a
+    for i in ['I', 'A', 'o', 'O']
+        execute 'nnoremap y' . i . ' :set paste<CR>' . i
+    endfor
+    " Deactivate paste mode when leaving Insert mode
+    augroup set_nopaste_when_esc
+        au!
+        autocmd InsertLeave * set nopaste
+    augroup end
+endif
 " }}}2
 
 " Quickfix list remaps {{{2
