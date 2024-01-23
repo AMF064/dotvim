@@ -19,3 +19,4 @@ iabbrev <buffer> vmain int main(void)<CR>{<CR>}<esc>O
 iabbrev <buffer> inc #include
 iabbrev <buffer> def #define
 " }}}1
+" vim: foldmethod=marker
