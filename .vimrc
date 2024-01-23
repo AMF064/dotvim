@@ -50,7 +50,7 @@ set splitright
 "}}}2
 
 " Autocompletion {{{2
-set path+="**"
+set path+=**
 set wildmenu
 set wildmode=longest,list,full
 " }}}2
