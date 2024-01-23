@@ -9,6 +9,7 @@ setlocal keywordprg=:Man
 
 " Indentation {{{1
 set cinoptions=+0,(0
+setlocal omnifunc=ccomplete#Complete
 " }}}1
 
 " Buffer-local remaps {{{1
