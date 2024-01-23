@@ -262,6 +262,9 @@ nnoremap <silent> <leader>j :lnext<CR>
 nnoremap <leader>x <cmd>!chmod +x %<CR>
 " }}}2
 
+" Completion remaps {{{2
+inoremap <expr> <CR> pumvisible() ? "<C-y>" : "<CR>"
+" }}}2
 " }}}1
 
 " Commands {{{1
