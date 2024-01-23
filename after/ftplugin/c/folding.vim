@@ -1,21 +1,16 @@
-" TODO: coordinate function with the set cinoptions
 function! CFolds()
-    let thisline = getline(v:lnum)
-    "let nextline = getline(v:lnum + 1)
+    let curline = getline(v:lnum)
+    " Do not fold comments or preprocessor directives
+    if match(curline, '^/[/*]') >= 0 || match(curline, '^#') >= 0
+        return '='
+    endif
     " Closing case
-    if match(thisline, '^\v\}(.*)?$') >= 0
-        return "<1"
-    " Allman-style function definitions
-    elseif match(thisline, '\v^(\S+\s+)?(\S+\s+)?\S+\s+\S+\s*\(.*\).*\{?$') >= 0
-        return ">1"
-        " Stroustrup-style function definitions
-        "elseif match(thisline, '\v.*\(.*\)\s*\{\s*$') >= 0
-    " return '<1'
-    " Structs
-    elseif match(thisline, '\v^(typedef )?(struct|enum).*\{?$') >= 0
-        return ">1"
+    if match(curline, '\v.*\}.*') >= 0
+        return 's1'
+    elseif match(curline, '\v.*\{.*') >= 0
+        return 'a1'
     else
-        return "="
+        return '='
     endif
     return '0'
 endfunction
