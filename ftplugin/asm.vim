@@ -1,2 +1,2 @@
 compiler nasm
-setlocal makeprg=nasm\ -felf64\ %\ &&\ ld\ -o\ %<\ %<.o
+setlocal makeprg=nasm\ -felf64\ % " &&\ ld\ -o\ %<\ %<.o
