@@ -128,7 +128,7 @@ nnoremap <leader>u mzg~iwg`z
 nnoremap <leader>U mzg~iwlg~eg`z
 nnoremap <leader>ev :vsplit ~/.vim/.vimrc<CR>
 " Open netrw
-nnoremap <leader>pv :Ex<CR>
+nnoremap <leader>ex :Ex<CR>
 " Change current directory to the current file's one
 nnoremap <leader>cd <cmd>lchdir %:p:h<CR>
 " Zepl remaps
