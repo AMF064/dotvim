@@ -42,7 +42,7 @@ runtime ftplugin/man.vim
 " }}}2
 
 " Colorscheme {{{2
-colorscheme desert
+colorscheme slate
 " }}}2
 
 " Splits {{{2
