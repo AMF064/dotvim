@@ -3,7 +3,7 @@
 " Function for not moving the cursor
 function! s:indent_file()
     let l:view = winsaveview()
-    call cursor(0,0)
+    call cursor(1,1)
     keepjumps normal =G
     call winrestview(l:view)
 endfunction
