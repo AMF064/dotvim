@@ -111,9 +111,12 @@ let g:repl_config = {
 let g:mapleader = " "
 let g:maplocalleader = '\'
 
+" General remaps {{{2
+noremap H _
+noremap L $
+" }}}2
+
 " Normal mode remaps {{{2
-nnoremap H _
-nnoremap L $
 " Deactivate highlighting
 nnoremap <silent> <leader>s :nohlsearch<CR>
 " Move one line down
