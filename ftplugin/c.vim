@@ -1,6 +1,6 @@
 " Compiler settings {{{1
 compiler gcc
-setlocal makeprg=gcc\ -Wall\ -Wextra\ -Wpedantic\ -ggdb\ -std=c11\ -o\ %<\ %
+setlocal makeprg=cc\ -Wall\ -Wextra\ -Wpedantic\ -ggdb\ -std=c11\ -o\ %<\ %
 " }}}1
 
 " Keywordprg, indentation and completion {{{1
