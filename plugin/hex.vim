@@ -1,3 +1,9 @@
+if exists('g:loaded_hex')
+    finish
+endif
+
+let g:loaded_hex = 1
+
 let b:hex_mode = 0
 
 function! hex#ToggleHexMode()
