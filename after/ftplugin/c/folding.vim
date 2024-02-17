@@ -1,13 +1,25 @@
+function! IsClosingBlock(line)
+    let opening = stridx(a:line, '{')
+    let closing = stridx(a:line, '}')
+    return (opening < 0 && closing >= 0)
+endfunction
+
+function! IsOpeningBlock(line)
+    let opening = stridx(a:line, '{')
+    let closing = stridx(a:line, '}')
+    return (opening >= 0 && closing < 0)
+endfunction
+
 function! CFolds()
     let curline = getline(v:lnum)
     " Do not fold comments or preprocessor directives
-    if match(curline, '^/[/*]') >= 0 || match(curline, '^#') >= 0
+    if match(curline, '^\s*/[/*]') >= 0 || match(curline, '^\s*#') >= 0
         return '='
     endif
     " Closing case
-    if match(curline, '\v.*\}.*') >= 0
+    if IsClosingBlock(curline)
         return 's1'
-    elseif match(curline, '\v.*\{.*') >= 0
+    elseif IsOpeningBlock(curline)
         return 'a1'
     else
         return '='
