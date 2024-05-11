@@ -15,6 +15,7 @@ set scrolloff=8
 " Backspace options for OpenBSD
 if has('bsd')
     set backspace=indent,eol,start
+    set encoding=utf-8
 endif
 
 " Folds
