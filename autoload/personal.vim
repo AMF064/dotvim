@@ -39,7 +39,7 @@ endfunction
 " Compile the current buffer and put the compiler messages in the quickfix list
 function! personal#CompileQuickFix()
     if &makeprg ==# ''
-        echoe 'Compile: error: makeprg has not been set for this buffer'
+        echoerr 'Compile: error: makeprg has not been set for this buffer'
         return
     endif
     " Close both lists
