@@ -246,7 +246,7 @@ endif
 " }}}2
 
 " Quickfix list remaps {{{2
-" Toggle the quickix list
+" Toggle the quickfix list
 nnoremap <silent> <leader>o :call personal#ToggleQuickFix()<CR>
 " Up in the quickfix list
 nnoremap <silent> <C-k> :cprev<CR>
