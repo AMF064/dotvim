@@ -5,7 +5,7 @@ setlocal makeprg=cc\ -Wall\ -Wextra\ -Wpedantic\ -ggdb\ -std=c11\ -o\ %<\ %
 
 " Keywordprg, indentation and completion {{{1
 setlocal keywordprg=:Man
-set cinoptions=+0,(0
+set cinoptions=+0,(0,E-s
 setlocal omnifunc=ccomplete#Complete
 " }}}1
 
