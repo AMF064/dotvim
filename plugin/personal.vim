@@ -20,7 +20,7 @@ endfunction
 " Do these two things before writing to file
 augroup before_writing
     au!
-    autocmd BufWritePre *.c,*.h,*.cpp,*.java,*.m,*.scm,*.lisp,*.perl,*.el,*.vim  silent call <SID>indent_file()
+    autocmd BufWritePre *.c,*.h,*.cpp,*.java,*.m,*.scm,*.lisp,*.pl,*.el,*.vim  silent call <SID>indent_file()
     autocmd BufWritePre * call <SID>trim_trailing_whitespace()
 augroup end
 
