@@ -228,7 +228,7 @@ if has('clipboard')
     nnoremap <leader>cP \"+P
 else
     " Paste from the clipboard and the primary selection.
-    " CAREFUL! These commands overwrites the contents
+    " CAREFUL! These commands overwrite the contents
     " of the current line.
     nnoremap <leader>cp !!xclip -sel clipboard -o<CR>
     nnoremap <leader>cP !!xclip -o<CR>
