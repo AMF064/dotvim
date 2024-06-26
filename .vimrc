@@ -12,6 +12,10 @@ set cursorline
 set laststatus=2
 set scrolloff=8
 
+" Shell options
+let &shellpipe="2>&1| tee"
+let &shellredir=">%s 2>&1"
+
 " Backspace options for OpenBSD
 if has('bsd')
     set backspace=indent,eol,start
