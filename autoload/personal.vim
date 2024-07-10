@@ -77,3 +77,9 @@ function! personal#ShowHighGroup()
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
+
+" 'Eat' a character. From Vim's help docs (map.txt, line 1284)
+function! personal#Eatchar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? '' : c
+endfunction

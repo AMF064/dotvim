@@ -9,5 +9,5 @@ set cinoptions=+0,(0
 
 " Abbreviations {{{1
 iabbrev <buffer> ret return ;<left>
-iabbrev <buffer> mainclass public class Main<CR>{<CR>public static void main(String[] args)<CR>{<CR>}<CR>}<Esc>kO
+iabbrev <buffer> mainclass public class Main<CR>{<CR>public static void main(String[] args)<CR>{<CR>}<CR>}<Esc>kO<C-R>=personal#Eatchar(' ')<CR>
 " }}}1
