@@ -92,7 +92,6 @@ set termguicolors
 set list
 set listchars=tab:>\ ,trail:·
 " }}}2
-" }}}1
 
 " Statusline {{{2
 set statusline=%f\ -\ %y\ [%L]\ %{fugitive#statusline()}%=%{getcwd()}/%=%([%M%R%H%W]%)[%P][%04l,%04v]
@@ -110,7 +109,7 @@ let g:repl_config = {
             \   'python': {'cmd': 'python3'},
             \ }
 " }}}2
-"}}}1
+" }}}1
 
 " Remaps {{{1
 let g:mapleader = " "
